@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OncoTech</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+        #section1 {
+            width: 40%;
+            float: left;
+            padding:10px,10px, 10px,20px;
+            margin-bottom: 1px;
+        }
+        #section2 {
+            width: 20%;
+            float: center;
+        }
+        #section3 {
+            width: 40%;
+            float: right;
+        }
+        #sectionAmostras {
+            float: left;
+            margin-top: 170px;
+            background: white;
+        }
+        input {
+            margin-bottom: 5px;
+        }
+    h3 {
+        text-align: center;
+        margin: 0px 350px 15px 50px;
+    }
+    body {
+        background-color: #AFEEEE;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>OncoTech</h1>
+
+    <form class="dados" method="POST" action="previsao">
+        <div id="section1">
+            <input name="name_doctor" type="text" placeholder="Name Doctor" value="{{name_doctor}}">
+            <input name="id_doctor" type="text" placeholder="ID Doctor" value="{{id_doctor}}">
+            <br><input name="name_pacient" type="text" placeholder="Name Pacient" value="{{name_pacient}}">
+            <input name="id_pacient" type="text" placeholder="ID Pacient" value="{{id_pacient}}">
+            <br><br>
+            <label>Amostras:</label>
+            <select id='amostras' name='amostras'>
+                <option value="">Amostras</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit" value="previsao">
+            <button name="consulta" type="button" onclick="window.location.href='{{ url_for( 'consulta') }}';">consulta</button><br>
+            <div id="sectionAmostras">
+            <table border="1">
+                   <tr>
+                       <th>Amostra 1:</th>
+                       <td>{{previsao_1}}</td>
+                   </tr>
+                <tr>
+                       <th>Amostra 2:</th>
+                       <td>{{previsao_2}}</td>
+                </tr>
+                <tr>
+                       <th>Amostra 3:</th>
+                       <td>{{previsao_3}}</td>
+                </tr>
+                <tr>
+                       <th>Amostra 4:</th>
+                       <td>{{previsao_4}}</td>
+                </tr>
+                <tr>
+                       <th>Amostra 5:</th>
+                       <td>{{previsao_5}}</td>
+                </tr>
+
+            </table>
+        </div>
+        </div>
+        <h3>Dados coletados</h3>
+        <div id="section2">
+            <input name="radius_mean" type="text" placeholder="radius_mean"><br>
+            <input name="texture_mean" type="text" placeholder="texture_mean"><br>
+            <input name="perimeter_mean" type="text" placeholder="perimeter_mean"><br>
+            <input name="area_mean" type="text" placeholder="area_mean"><br>
+            <input name="smoothness_mean" type="text" placeholder="smoothness_mean"><br>
+            <input name="compactness_mean" type="text" placeholder="compactness_mean"><br>
+            <input name="concavity_mean" type="text" placeholder="concavity_mean"><br>
+            <input name="concave_points_mean" type="text" placeholder="concave_points_mean"><br>
+            <input name="symmetry_mean" type="text" placeholder="symmetry_mean"><br>
+            <input name="fractal_dimension_mean" type="text" placeholder="fractal_dimension_mean"><br>
+            <input name="radius_se" type="text" placeholder="radius_se"><br>
+            <input name="texture_se" type="text" placeholder="texture_se"><br>
+            <input name="perimeter_se" type="text" placeholder="perimeter_se"><br>
+            <input name="area_se" type="text" placeholder="area_se"><br>
+            <input name="smoothness_se" type="text" placeholder="smoothness_se"><br>
+        </div>
+        <div id="section3">
+            <input name="compactness_se" type="text" placeholder="compactness_se"><br>
+            <input name="concavity_se" type="text" placeholder="concavity_se"><br>
+            <input name="concave_points_se" type="text" placeholder="concave_points_se"><br>
+            <input name="symmetry_se" type="text" placeholder="symmetry_se"><br>
+            <input name="fractal_dimension_se" type="text" placeholder="fractal_dimension_se"><br>
+            <input name="radius_worst" type="text" placeholder="radius_worst"><br>
+            <input name="texture_worst" type="text" placeholder="texture_worst"><br>
+            <input name="perimeter_worst" type="text" placeholder="perimeter_worst"><br>
+            <input name="area_worst" type="text" placeholder="area_worst"><br>
+            <input name="smoothness_worst" type="text" placeholder="smoothness_worst"><br>
+            <input name="compactness_worst" type="text" placeholder="compactness_worst"><br>
+            <input name="concavity_worst" type="text" placeholder="concavity_worst"><br>
+            <input name="concave_points_worst" type="text" placeholder="concave_points_worst"><br>
+            <input name="symmetry_worst" type="text" placeholder="symmetry_worst"><br>
+            <input name="fractal_dimension_worst" type="text" placeholder="fractal_dimension_worst"><br>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta</title>
+    <style>
+        #tb1 {
+            margin: 0 auto;
+            margin-bottom: 15px;
+            margin-top: 100px;
+        }
+        #tb2 {
+            margin: 0 auto;
+            text-align: center;
+        }
+        body {
+            background-color: #AFEEEE;
+        }
+        table {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta</h1>
+    <h2>{{name_pacient}}</h2>
+    <table border="1" id="tb1">
+
+        <tr>
+           <th>Pacient:</th>
+           <td>{{name_pacient}}</td>
+           <td>{{id_pacient}}</td>
+       </tr>
+        <tr>
+           <th>Doctor:</th>
+           <td>{{name_doctor}}</td>
+           <td>{{id_doctor}}</td>
+        </tr>
+    </table>
+    <table border="1" id="tb2">
+        <tr>
+            <th>Data_ultima consulta:</th>
+            <td>{{data_exame}}</td>
+        </tr>
+       <tr>
+           <th>Amostra 1:</th>
+           <td>{{previsao_1}}</td>
+       </tr>
+        <tr>
+               <th>Amostra 2:</th>
+               <td>{{previsao_2}}</td>
+        </tr>
+        <tr>
+               <th>Amostra 3:</th>
+               <td>{{previsao_3}}</td>
+        </tr>
+        <tr>
+               <th>Amostra 4:</th>
+               <td>{{previsao_4}}</td>
+        </tr>
+        <tr>
+               <th>Amostra 5:</th>
+               <td>{{previsao_5}}</td>
+        </tr>
+    </table>
+</body>
+</html>
