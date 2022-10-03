@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import numpy as np
 import pandas as pd
 from keras.models import model_from_json
@@ -30,6 +30,13 @@ def previsao():
           0.20, 0.05, 1098, 0.87, 4500, 145.2, 0.005, 0.04, 0.05, 0.015,
           0.03, 0.007, 23.15, 16.64, 178.5, 2018, 0.14, 0.185,
           0.84, 158, 0.363]])
+    dados = np.array(
+        ['radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean', 'smoothness_mean', 'compactness_mean',
+         'concavity_mean', 'concave_points_mean', 'symmetry_mean', 'fractal_dimension_mean', 'radius_se', 'texture_se',
+         'perimeter_se', 'area_se', 'smoothness_se', 'compactness_se', 'concavity_se', 'concave_points_se',
+         'symmetry_se', 'fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst', 'area_worst',
+         'smoothness_worst', 'compactness_worst', 'concavity_worst', 'concave_points_worst', 'symmetry_worst',
+         'fractal_dimension_worst'])
 
     global name_pacient
     global name_doctor
@@ -45,36 +52,9 @@ def previsao():
     name_pacient = registro[0][2]
     registro[0][3] = data('id_pacient')
     id_pacient = registro[0][3]
-    registro[0][4] = float(data('radius_mean'))
-    registro[0][5] = float(data('texture_mean'))
-    registro[0][6] = float(data('perimeter_mean'))
-    registro[0][7] = float(data('area_mean'))
-    registro[0][8] = float(data('smoothness_mean'))
-    registro[0][9] = float(data('compactness_mean'))
-    registro[0][10] = float(data('concavity_mean'))
-    registro[0][11] = float(data('concave_points_mean'))
-    registro[0][12] = float(data('symmetry_mean'))
-    registro[0][13] = float(data('fractal_dimension_mean'))
-    registro[0][14] = float(data('radius_se'))
-    registro[0][15] = float(data('texture_se'))
-    registro[0][16] = float(data('perimeter_se'))
-    registro[0][17] = float(data('area_se'))
-    registro[0][18] = float(data('smoothness_se'))
-    registro[0][19] = float(data('compactness_se'))
-    registro[0][20] = float(data('concavity_se'))
-    registro[0][21] = float(data('concave_points_se'))
-    registro[0][22] = float(data('symmetry_se'))
-    registro[0][23] = float(data('fractal_dimension_se'))
-    registro[0][24] = float(data('radius_worst'))
-    registro[0][25] = float(data('texture_worst'))
-    registro[0][26] = float(data('perimeter_worst'))
-    registro[0][27] = float(data('area_worst'))
-    registro[0][28] = float(data('smoothness_worst'))
-    registro[0][29] = float(data('compactness_worst'))
-    registro[0][30] = float(data('concavity_worst'))
-    registro[0][31] = float(data('concave_points_worst'))
-    registro[0][32] = float(data('symmetry_worst'))
-    registro[0][33] = float(data('fractal_dimension_worst'))
+
+    for i in range(len(dados)):
+        registro[0][i+4] = float(data(dados[i]))
 
     data_log = dt.datetime.now()
     data_log = data_log.strftime("%d/%m/%y %H:%M")
@@ -132,7 +112,7 @@ def consulta():
 
 @app.route("/pacients")
 def pacient():
-    return render_template("pacient.html", name_pacient=name_pacient)
+    return redirect('http://127.0.0.1:8050/', code=301)
 
 if __name__ == "__main__":
     app.run(debug=True)

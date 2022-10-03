@@ -49,44 +49,45 @@
             <br><input name="name_pacient" type="text" placeholder="Name Pacient" value="{{name_pacient}}">
             <input name="id_pacient" type="text" placeholder="ID Pacient" value="{{id_pacient}}">
             <br><br>
-            <label>Amostras:</label>
+            <label>Sample:</label>
             <select id='amostras' name='amostras'>
-                <option value="">Amostras</option>
+                <option value="">Sample</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <input type="submit" value="previsao">
-            <button name="consulta" type="button" onclick="window.location.href='{{ url_for( 'consulta') }}';">consulta</button><br>
+            <input type="submit" value="predict">
+            <button name="consulta" type="button" onclick="window.location.href='{{ url_for( 'consulta') }}';">query</button>
+            <button name="consulta-pacients" type="button" onclick="window.location.href='{{ url_for( 'pacient') }}';">pacients</button><br>
             <div id="sectionAmostras">
             <table border="1">
                    <tr>
-                       <th>Amostra 1:</th>
+                       <th>Sample 1:</th>
                        <td>{{previsao_1}}</td>
                    </tr>
                 <tr>
-                       <th>Amostra 2:</th>
+                       <th>Sample 2:</th>
                        <td>{{previsao_2}}</td>
                 </tr>
                 <tr>
-                       <th>Amostra 3:</th>
+                       <th>Sample 3:</th>
                        <td>{{previsao_3}}</td>
                 </tr>
                 <tr>
-                       <th>Amostra 4:</th>
+                       <th>Sample 4:</th>
                        <td>{{previsao_4}}</td>
                 </tr>
                 <tr>
-                       <th>Amostra 5:</th>
+                       <th>Sample 5:</th>
                        <td>{{previsao_5}}</td>
                 </tr>
 
             </table>
         </div>
         </div>
-        <h3>Dados coletados</h3>
+        <h3>Collected data</h3>
         <div id="section2">
             <input name="radius_mean" type="text" placeholder="radius_mean"><br>
             <input name="texture_mean" type="text" placeholder="texture_mean"><br>

@@ -19,11 +19,17 @@
         table {
             background: white;
         }
+        button {
+            margin-left: 48%;
+            margin-top: 25px;
+            padding: 5px 10px 5px 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Consulta</h1>
-    <h2>{{name_pacient}}</h2>
+    <h1>Medical appointment</h1>
+    <h2>Patient: {{name_pacient}}</h2>
+
     <table border="1" id="tb1">
 
         <tr>
@@ -39,29 +45,30 @@
     </table>
     <table border="1" id="tb2">
         <tr>
-            <th>Data_ultima consulta:</th>
+            <th>Date of checkup:</th>
             <td>{{data_exame}}</td>
         </tr>
        <tr>
-           <th>Amostra 1:</th>
+           <th>Sample 1:</th>
            <td>{{previsao_1}}</td>
        </tr>
         <tr>
-               <th>Amostra 2:</th>
+               <th>Sample 2:</th>
                <td>{{previsao_2}}</td>
         </tr>
         <tr>
-               <th>Amostra 3:</th>
+               <th>Sample 3:</th>
                <td>{{previsao_3}}</td>
         </tr>
         <tr>
-               <th>Amostra 4:</th>
+               <th>Sample 4:</th>
                <td>{{previsao_4}}</td>
         </tr>
         <tr>
-               <th>Amostra 5:</th>
+               <th>Sample 5:</th>
                <td>{{previsao_5}}</td>
         </tr>
     </table>
+<button name="consulta" type="button" onclick="window.location.href='{{ url_for( 'homepage') }}';">return</button><br>
 </body>
 </html>
