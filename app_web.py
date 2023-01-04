@@ -70,27 +70,65 @@ def previsao():
     if amostra == '1':
         global previsao_1
         previsao_1= previsao
-        return render_template("homepage.html", previsao_1=previsao, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient)
+        return render_template("homepage.html",
+                               previsao_1=previsao,
+                               name_doctor=name_doctor,
+                               id_doctor=id_doctor,
+                               name_pacient=name_pacient,
+                               id_pacient=id_pacient)
     if amostra == '2':
         global previsao_2
         previsao_2= previsao
-        return render_template("homepage.html", previsao_1=previsao_1, previsao_2=previsao, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient)
+        return render_template("homepage.html",
+                               previsao_1=previsao_1,
+                               previsao_2=previsao,
+                               name_doctor=name_doctor,
+                               id_doctor=id_doctor,
+                               name_pacient=name_pacient,
+                               id_pacient=id_pacient)
     if amostra == '3':
         global previsao_3
         previsao_3= previsao
-        return render_template("homepage.html", previsao_1=previsao_1, previsao_2=previsao_2, previsao_3=previsao, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient)
+        return render_template("homepage.html",
+                               previsao_1=previsao_1,
+                               previsao_2=previsao_2,
+                               previsao_3=previsao,
+                               name_doctor=name_doctor,
+                               id_doctor=id_doctor,
+                               name_pacient=name_pacient,
+                               id_pacient=id_pacient)
     if amostra == '4':
         global previsao_4
         previsao_4= previsao
-        return render_template("homepage.html", previsao_1=previsao_1, previsao_2=previsao_2, previsao_3=previsao_3, previsao_4=previsao, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient)
+        return render_template("homepage.html",
+                               previsao_1=previsao_1,
+                               previsao_2=previsao_2,
+                               previsao_3=previsao_3,
+                               previsao_4=previsao,
+                               name_doctor=name_doctor,
+                               id_doctor=id_doctor,
+                               name_pacient=name_pacient,
+                               id_pacient=id_pacient)
     if amostra == '5':
         global previsao_5
         previsao_5= previsao
         global data_exame
         data_exame = pd.Timestamp.now()
         data_exame = data_exame.strftime("%m/%d/%y %H:%M")
-        print(f'paciente:{name_pacient}, medico: {name_doctor}, amostra 1: {previsao_1}, amostra 2: {previsao_2}, amostra 3: {previsao_3}, amostra 4: {previsao_4}, amostra 5: {previsao_5}')
-        return render_template("homepage.html", previsao_1=previsao_1, previsao_2=previsao_2, previsao_3=previsao_3, previsao_4=previsao_4, previsao_5=previsao, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient, data_exame=data_exame)
+        print(f'paciente:{name_pacient}, medico: {name_doctor},'
+              f' amostra 1: {previsao_1}, amostra 2: {previsao_2},'
+              f' amostra 3: {previsao_3}, amostra 4: {previsao_4}, amostra 5: {previsao_5}')
+        return render_template("homepage.html",
+                               previsao_1=previsao_1,
+                               previsao_2=previsao_2,
+                               previsao_3=previsao_3,
+                               previsao_4=previsao_4,
+                               previsao_5=previsao,
+                               name_doctor=name_doctor,
+                               id_doctor=id_doctor,
+                               name_pacient=name_pacient,
+                               id_pacient=id_pacient,
+                               data_exame=data_exame)
 
 
 
@@ -108,7 +146,17 @@ def consulta():
     base.loc[:, 'Data'] = data_exame
     base.to_csv("recurso/Pacients.csv", mode='a', header=False)
     print(base)
-    return render_template("consulta.html", previsao_1=previsao_1, previsao_2=previsao_2, previsao_3=previsao_3, previsao_4=previsao_4, previsao_5=previsao_5, name_doctor=name_doctor, id_doctor=id_doctor, name_pacient=name_pacient, id_pacient=id_pacient, data_exame=data_exame)
+    return render_template("consulta.html",
+                           previsao_1=previsao_1,
+                           previsao_2=previsao_2,
+                           previsao_3=previsao_3,
+                           previsao_4=previsao_4,
+                           previsao_5=previsao_5,
+                           name_doctor=name_doctor,
+                           id_doctor=id_doctor,
+                           name_pacient=name_pacient,
+                           id_pacient=id_pacient,
+                           data_exame=data_exame)
 
 @app.route("/pacients")
 def pacient():
